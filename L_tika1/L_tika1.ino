@@ -1,12 +1,18 @@
-const int LED_PIN = 19; // 多くのESP32ボードでは2番ピンが内蔵LEDです
+const int adcPin = 34; // 測定に使用するGPIOピン (例: GPIO34)
 
 void setup() {
-  pinMode(LED_PIN, OUTPUT);
+  Serial.begin(115200);
 }
 
 void loop() {
-  digitalWrite(LED_PIN, HIGH); // LEDを点灯
-  delay(500);                 // 1秒待つ
-  digitalWrite(LED_PIN, LOW);  // LEDを消灯
-  delay(500);                 // 1秒待つ
+  // キャリブレーション済みのミリボルト値を取得 (例: 1000 = 1.0V)
+  uint32_t voltage_mV = analogReadMilliVolts(adcPin);
+  
+  float voltage_V = voltage_mV / 1000.0;
+
+  Serial.print("Voltage: ");
+  Serial.print(voltage_V);
+  Serial.println(" V");
+
+  delay(500);
 }
