@@ -15,7 +15,7 @@ void handleRoot() {
   html += "<head><meta charset=\"UTF-8\"><title>ESP32-S3 Web Server</title></head>";
   html += "<body>";
   html += "<h1>Hello from ESP32-S3!</h1>";
-  html += "<p>Webサーバーが正常に起動しています。</p>";
+//  html += "<p>Webサーバーが正常に起動しています。</p>";
 //  html += "</body></html>";
   
   // HTTPステータス200（成功）、コンテンツタイプ「text/html」でHTMLを送信
@@ -89,14 +89,14 @@ void loop() {
   delay(500); // 0.5秒ごとに測定
   delay(2); // ウォッチドッグタイマー(WDT)リセット対策用の短いディレイ
 
-  String html = "";
-  html += "<head><meta charset=\"UTF-8\"><title>Web Server</title></head>";
-  html += "<body>";
-  html += "<h1>Hello from ESP32-S3!</h1>";
-  html += "<p> Voltage:";  
+  String html = "<br>";
+//  html += "<head><meta charset=\"UTF-8\"><title>Web Server</title></head>";
+//  html += "<body>";
+//  html += "<h1>Hello from ESP32-S3!</h1>";
+  html += "Voltage:";  
   html += volt_mV;  
-  html += "mV</p>";
-  html += "</body></html>";
+  html += "mV";
+//  html += "</body></html>";
   
   // HTTPステータス200（成功）、コンテンツタイプ「text/html」でHTMLを送信
   server.send(200, "text/html", html);
