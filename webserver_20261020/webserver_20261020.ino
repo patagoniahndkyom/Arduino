@@ -4,11 +4,11 @@
 // Wi-Fiの接続情報を入力
 const char* ssid = "aterm-bdbab8-g";
 const char* password = "57d744f87f264";
-const int ANALOG_PIN32 = 32;
-const int ANALOG_PIN33 = 33;
-const int ANALOG_PIN34 = 34;
-const int ANALOG_PIN35 = 35;
-const int ANALOG_PIN36 = 36;
+const int ANALOG_PIN32 = 1;
+const int ANALOG_PIN33 = 2;
+const int ANALOG_PIN34 = 3;
+const int ANALOG_PIN35 = 4;
+const int ANALOG_PIN36 = 5;
 String html = "";
 
 // NTP設定（日本標準時: JST-9）
@@ -115,7 +115,7 @@ void setup() {
  // NTP時刻同期の初期化
   configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
 
-  
+
   // ルーティングの設定（特定のURLパスと処理する関数を紐付け）
   server.on("/", handleRoot);
   server.onNotFound(handleNotFound);
@@ -162,31 +162,31 @@ void loop() {
   float volt_V35 = volt_mV35 / 1000.0;
   float volt_V36 = volt_mV36 / 1000.0;
   // シリアルモニタへの出力
-  Serial.print("Raw ADC32: ");
-  Serial.print(rawValue32);
-  Serial.print(" | Voltage32: ");
-  Serial.print(volt_mV32);
-  Serial.println(" mV ");
-  Serial.print("Raw ADC33: ");
-  Serial.print(rawValue33);
-  Serial.print(" | Voltage33: ");
-  Serial.print(volt_mV33);
-  Serial.println(" mV ");
-  Serial.print("Raw ADC34: ");
-  Serial.print(rawValue34);
-  Serial.print(" | Voltage34: ");
-  Serial.print(volt_mV34);
-  Serial.println(" mV ");
-  Serial.print("Raw ADC35: ");
-  Serial.print(rawValue35);
-  Serial.print(" | Voltage35: ");
-  Serial.print(volt_mV35);
-  Serial.println(" mV ");
-  Serial.print("Raw ADC36: ");
-  Serial.print(rawValue36);
-  Serial.print(" | Voltage36: ");
-  Serial.print(volt_mV36);
-  Serial.println(" mV ");
+//  Serial.print("Raw ADC32: ");
+//  Serial.print(rawValue32);
+//  Serial.print(" | Voltage32: ");
+//  Serial.print(volt_mV32);
+//  Serial.println(" mV ");
+//  Serial.print("Raw ADC33: ");
+//  Serial.print(rawValue33);
+//  Serial.print(" | Voltage33: ");
+//  Serial.print(volt_mV33);
+//  Serial.println(" mV ");
+//  Serial.print("Raw ADC34: ");
+//  Serial.print(rawValue34);
+//  Serial.print(" | Voltage34: ");
+//  Serial.print(volt_mV34);
+//  Serial.println(" mV ");
+//  Serial.print("Raw ADC35: ");
+//  Serial.print(rawValue35);
+//  Serial.print(" | Voltage35: ");
+//  Serial.print(volt_mV35);
+//  Serial.println(" mV ");
+//  Serial.print("Raw ADC36: ");
+//  Serial.print(rawValue36);
+//  Serial.print(" | Voltage36: ");
+//  Serial.print(volt_mV36);
+//  Serial.println(" mV ");
   delay(500); // 0.5秒ごとに測定
 
   delay(2); // ウォッチドッグタイマー(WDT)リセット対策用の短いディレイ
